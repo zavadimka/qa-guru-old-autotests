@@ -1,4 +1,7 @@
-package pages.components;
+package pages;
+
+import pages.components.CalendarComponent;
+import pages.components.RegistrationResultPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -7,7 +10,8 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
 
-    CalendarComponent calendarComponent = new CalendarComponent();
+    private CalendarComponent calendarComponent = new CalendarComponent();
+    private RegistrationResultPage registrationResultPage = new RegistrationResultPage();
 
     public RegistrationPage openPage(String pageAddress){
         // открыть страницу формы
@@ -120,7 +124,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage submitRegistration(){
+    public RegistrationPage submitRegistration() {
 
         // прокручиваем экран ниже
         executeJavaScript("window.scrollTo(0, 1000);");
@@ -133,18 +137,24 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkSuccssesfulSubmit(){
+    public RegistrationPage successfulSubmit() {
 
-        // проверяем, что появилась заполненная форма
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-
-        // закрываем форму
-        $("#closeLargeModal").click();
-
-        // проверяем, что опять на странице формы
-        $(".main-header").shouldHave(text("Practice Form"));
+        registrationResultPage.successfulSubmit();
 
         return this;
     }
 
+    public RegistrationPage successfulFormFilling (String key, String value){
+
+        registrationResultPage.successfulFormFilling(key, value);
+
+        return this;
+    }
+
+    public RegistrationPage successfulReturnToForm (){
+
+        registrationResultPage.successfulReturnToForm();
+
+        return this;
+    }
 }

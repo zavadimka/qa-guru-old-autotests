@@ -8,7 +8,7 @@ import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class checkPageSoftAssertionsOnGithub {
+public class CheckPageSoftAssertionsOnGithub {
     @BeforeAll
     static void beforeAll(){
         Configuration.baseUrl="https://github.com";
