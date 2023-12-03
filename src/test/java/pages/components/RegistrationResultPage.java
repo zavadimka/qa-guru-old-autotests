@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationResultPage {
 
-    public RegistrationResultPage successfulSubmit(){
+    public RegistrationResultPage successfulSubmit() {
 
         // проверяем, что появилась заполненная форма
         $(".modal-dialog").should(appear);
@@ -19,15 +19,15 @@ public class RegistrationResultPage {
         return this;
     }
 
-    public RegistrationResultPage successfulFormFilling (String key, String value){
+    public RegistrationResultPage successfulFormFilling(String key, String value) {
 
         $(".table-responsive").$(byText(key))
-                        .parent().shouldHave(text(value));
+                .parent().shouldHave(text(value));
 
         return this;
     }
 
-    public RegistrationResultPage successfulReturnToForm (){
+    public RegistrationResultPage successfulReturnToForm() {
 
         // закрываем форму подтверждения
         $("#closeLargeModal").click();

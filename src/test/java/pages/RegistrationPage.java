@@ -13,7 +13,7 @@ public class RegistrationPage {
     private CalendarComponent calendarComponent = new CalendarComponent();
     private RegistrationResultPage registrationResultPage = new RegistrationResultPage();
 
-    public RegistrationPage openPage(String pageAddress){
+    public RegistrationPage openPage(String pageAddress) {
         // открыть страницу формы
         open(pageAddress);
 
@@ -27,7 +27,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setFirstName (String firstName) {
+    public RegistrationPage setFirstName(String firstName) {
 
         // ввести имя
         $("#firstName").setValue(firstName);
@@ -35,7 +35,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setLastName (String lastName) {
+    public RegistrationPage setLastName(String lastName) {
 
         // ввести фамилию
         $("#lastName").setValue(lastName);
@@ -43,7 +43,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setEmail (String email) {
+    public RegistrationPage setEmail(String email) {
 
         // ввести e-mail
         $("#userEmail").setValue(email);
@@ -51,7 +51,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGender (String gender) {
+    public RegistrationPage setGender(String gender) {
 
         // выбрать пол
         $("#genterWrapper").$(byText(gender)).click();
@@ -59,7 +59,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setPhoneNumber (String phoneNumber) {
+    public RegistrationPage setPhoneNumber(String phoneNumber) {
 
         // ввести мобильный номер
         $("#userNumber").setValue(phoneNumber);
@@ -67,7 +67,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setDateOfBirthday (String dayOfBirthday, String monthOfBirthday, String yearOfBirthday) {
+    public RegistrationPage setDateOfBirthday(String dayOfBirthday, String monthOfBirthday, String yearOfBirthday) {
 
         // выбрать ДР
         $("#dateOfBirthInput").click();
@@ -76,7 +76,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubjects (String subject1, String subject2) {
+    public RegistrationPage setSubjects(String subject1, String subject2) {
 
         // ввести subjects
         $("#subjectsInput").val(subject1);
@@ -89,7 +89,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobby (String hobby) {
+    public RegistrationPage setHobby(String hobby) {
 
         // выбрать хобби
         $("#hobbiesWrapper").$(byText(hobby)).click();
@@ -97,7 +97,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage addImage (String imagePath) {
+    public RegistrationPage addImage(String imagePath) {
 
         // прикрепить файл
         $("#uploadPicture").uploadFromClasspath(imagePath);
@@ -105,7 +105,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setCurrentAddress (String currentAddress) {
+    public RegistrationPage setCurrentAddress(String currentAddress) {
 
         // ввести current address
         $("#currentAddress").setValue(currentAddress);
@@ -113,7 +113,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setStateAndCity (String state, String city) {
+    public RegistrationPage setStateAndCity(String state, String city) {
 
         // выбрать штат и город
         $("#state").click();
@@ -144,14 +144,14 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage successfulFormFilling (String key, String value){
+    public RegistrationPage successfulFormFilling(String key, String value) {
 
         registrationResultPage.successfulFormFilling(key, value);
 
         return this;
     }
 
-    public RegistrationPage successfulReturnToForm (){
+    public RegistrationPage successfulReturnToForm() {
 
         registrationResultPage.successfulReturnToForm();
 
