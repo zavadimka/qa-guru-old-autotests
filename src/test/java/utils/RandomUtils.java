@@ -1,10 +1,14 @@
 package utils;
 
+import com.github.javafaker.Faker;
+
 import java.security.SecureRandom;
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
 
+    public static Faker faker = new Faker(new Locale("en"));
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
@@ -25,4 +29,29 @@ public class RandomUtils {
         return values[index];
     }
 
+
+    public static String getFirstName(){
+
+        return faker.name().firstName();
+    }
+
+    public static String getLastName(){
+
+        return faker.name().lastName();
+    }
+
+    public static String getEmail(){
+
+        return faker.internet().emailAddress();
+    }
+
+    public static String getGender(){
+
+        return faker.demographic().sex();
+    }
+
+    public static String getCurrentAddress(){
+
+        return faker.address().fullAddress();
+    }
 }
