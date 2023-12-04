@@ -1,30 +1,33 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-
 import pages.RegistrationPage;
 
-public class RegistrationFormTestsWithPageObjects extends TestBase {
+import static utils.RandomUtils.*;
+
+public class RegistrationFormTestsWithRandomDataUtils extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void successfulRegistrationTest() {
 
+        String[] genders = new String[] {"Male", "Female", "Other"};
+        String[] subjects = new String[] {"Maths", "English", "Commerce", "Economics"};
+        String[] hobbies = new String[] {"Sports", "Reading", "Music"};
+
         String pageAddress = "/automation-practice-form",
-                firstName = "Ivan",
-                lastName = "Ivanov",
-                email = "ivanov@ivanov.com",
-                gender = "Male",
-                phoneNumber = "0123456789",
+                firstName = getRandomString(10),
+                lastName = getRandomString(10),
+                email = getRandomString(10) + "@testmail.com",
+                gender = getRandomItemFromArray(genders),
+                phoneNumber = "382" + getRandomInt(6000000, 9999999),
                 dayOfBirthday = "02",
-                monthOfBirthday = "June",
-                yearOfBirthday = "1985",
-                subject = "Maths",
-                hobby = "Sports",
+                subject = getRandomItemFromArray(subjects),
+                hobby = getRandomItemFromArray(hobbies),
                 imageName = "testImage.png",
                 imagePath = "img/testImage.png",
-                currentAddress = "Montenegro",
+                currentAddress = getRandomString(10),
                 state = "NCR",
                 city = "Delhi";
 
@@ -47,7 +50,6 @@ public class RegistrationFormTestsWithPageObjects extends TestBase {
                 .successfulFormFilling("Student Email", email)
                 .successfulFormFilling("Gender", gender)
                 .successfulFormFilling("Mobile", phoneNumber)
-                .successfulFormFilling("Date of Birth", dayOfBirthday + " " + monthOfBirthday + "," + yearOfBirthday)
                 .successfulFormFilling("Subjects", subject)
                 .successfulFormFilling("Hobbies", hobby)
                 .successfulFormFilling("Picture", imageName)

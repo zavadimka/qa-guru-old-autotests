@@ -67,23 +67,20 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setDateOfBirthday(String dayOfBirthday, String monthOfBirthday, String yearOfBirthday) {
+    public RegistrationPage setDateOfBirthday(String dayOfBirthday) {
 
         // выбрать ДР
         $("#dateOfBirthInput").click();
-        calendarComponent.setDate(dayOfBirthday, monthOfBirthday, yearOfBirthday);
+        calendarComponent.setDate(dayOfBirthday);
 
         return this;
     }
 
-    public RegistrationPage setSubjects(String subject1, String subject2) {
+    public RegistrationPage setSubjects(String subject) {
 
         // ввести subjects
-        $("#subjectsInput").val(subject1);
+        $("#subjectsInput").val(subject);
         // Кликните по первому элементу в выпадающем списке
-        $(".subjects-auto-complete__option").click();
-
-        $("#subjectsInput").val(subject2);
         $(".subjects-auto-complete__option").click();
 
         return this;
@@ -129,10 +126,10 @@ public class RegistrationPage {
         // прокручиваем экран ниже
         executeJavaScript("window.scrollTo(0, 1000);");
 
+        sleep(3000);
+
         // подтвержаем заполнение формы
         $("#submit").click();
-
-        //sleep(3000);
 
         return this;
     }
